@@ -42,72 +42,106 @@ window.addEventListener("keydown", my_keydown);
 
 function my_keydown(e){
     keyPressed = e.keyCode;
-    if(e.shiftkey == true && keyPressed == "80"){
+    if(e.shiftKey == true && keyPressed == '80'){
         current_width = current_width + 10;
         current_height = current_height + 10;
         document.getElementById("current_width").innerHTML = current_width;
         document.getElementById("current_height").innerHTML = current_height;
     }
 
-    if(e.shiftkey == true && keyPressed == "77"){
+    if(e.shiftKey == true && keyPressed == '77'){
         current_width = current_width - 10;
         current_height = current_height - 10;
         document.getElementById("current_width").innerHTML = current_width;
         document.getElementById("current_height").innerHTML = current_height;
     }
 
-    if(keyPressed = "37"){
+    if(keyPressed == '37'){
         left();
     }
 
-    if(keyPressed = "38"){
+    if(keyPressed =='38'){
         up();
     }
 
-    if(keyPressed = "39"){
+    if(keyPressed == '39'){
         right();
     }
 
-    if(keyPressed = "40"){
+    if(keyPressed == '40'){
         down();
     }
     
-    if(keyPressed = "87"){
+    if(keyPressed == '87'){
         new_image('wall.jpg');
     }
 
-    if(keyPressed = "71"){
+    if(keyPressed == '71'){
         new_image('ground.png');
     }
 
-    if(keyPressed = "76"){
+    if(keyPressed == '76'){
         new_image('light_green.png');
     }
 
-    if(keyPressed = "84"){
+    if(keyPressed == '84'){
         new_image('trunk.jpg');
     }
 
-    if(keyPressed = "82"){
+    if(keyPressed =='82'){
         new_image('roof.jpg');
     }
 
-    if(keyPressed = "89"){
+    if(keyPressed == '89'){
         new_image('yellow_wall.png');
     }
 
-    if(keyPressed = "68"){
+    if(keyPressed == '68'){
         new_image('dark_green.png');
     }
 
-    if(keyPressed = "85"){
+    if(keyPressed == '85'){
         new_image('unique.png');
     }
 
-    if(keyPressed = "67"){
+    if(keyPressed == '67'){
         new_image('cloud.jpg');
     }
 }
+
+function up(){
+    if(player_y >=0){
+        player_y = player_y - current_height;
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+
+function down(){
+    if(player_y <=500){
+        player_y = player_y + current_height;
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+
+function left(){
+    if(player_x >=0){
+        player_x = player_x - current_width;
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+
+function right(){
+    if(player_x <=900){
+        player_x = player_x + current_width;
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+
+
 
 
 
